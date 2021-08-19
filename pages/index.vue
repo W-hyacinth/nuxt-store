@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SearchInput v-model="searchKeyword" />
+    <SearchInput v-model="searchKeyword" @search="searchProducts" />
     <main>
       <ul class="product__list">
         <li
@@ -22,6 +22,7 @@
 
 <script>
 import axios from 'axios'
+import {fetchProductsByKeyword} from '@/api'
 import SearchInput from '@/components/SearchInput'
 // import ProductList from '@/components/ProductList'
 export default {
@@ -42,8 +43,14 @@ export default {
     }
   },
   methods: {
-    updateSearchKeyword (keyword) {
-      this.searchKeyword = keyword
+    async searchProducts() {
+      const response = await fetchProductsByKeyword(this.searchKeyword)
+      this.products = response.data.map((item) => {
+        return {
+          ...item,
+          imageUrl: `${item.imageUrl}?random=${Math.random()}`,
+        }
+      })
     }
   }
 }
