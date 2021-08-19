@@ -9,11 +9,11 @@
           v-for="item in products"
           :key="item.id"
           class="product__item">
-          <a href="" class="product__link">
+          <nuxt-link :to="`/detail/${item.id}`" class="product__link">
             <picture class="product__img">
               <img :src="item.imageUrl" :alt="item.name">
             </picture>
-          </a>
+          </nuxt-link>
           <strong class="product__name">{{ item.name }}</strong>
           <strong class="product__price">{{ item.price }}</strong>
         </li>
@@ -78,11 +78,10 @@ export default {
   }
   &__name {
     margin-top: .75rem;
-    font-size: 1.25rem;
   }
   &__price {
     margin-top: .25rem;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 }
 @media screen and (min-width: 768px) {

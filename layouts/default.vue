@@ -1,8 +1,7 @@
 <template>
   <div>
     <header>
-      <h1>{{ $route.name }} 페이지</h1>
-      <nuxt-link to="/">index</nuxt-link>
+      <h1><nuxt-link to="/">Nuxt Shopping</nuxt-link></h1>
     </header>
     <Nuxt />
   </div>
