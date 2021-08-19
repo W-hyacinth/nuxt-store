@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div>
-      <input type="text">
-    </div>
+    <SearchInput v-model="searchKeyword" />
     <main>
       <ul class="product__list">
         <li
@@ -24,8 +22,10 @@
 
 <script>
 import axios from 'axios'
+import SearchInput from '@/components/SearchInput'
 // import ProductList from '@/components/ProductList'
 export default {
+  components: { SearchInput },
   async asyncData() {
     const response = await axios.get('http://localhost:3000/products')
     const products = response.data.map((item) => {
@@ -35,6 +35,16 @@ export default {
       }
     })
     return { products }
+  },
+  data () {
+    return {
+      searchKeyword: ''
+    }
+  },
+  methods: {
+    updateSearchKeyword (keyword) {
+      this.searchKeyword = keyword
+    }
   }
 }
 </script>
