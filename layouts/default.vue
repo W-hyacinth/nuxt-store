@@ -1,19 +1,28 @@
 <template>
   <div>
-    <header>
-      <h1><nuxt-link to="/">Nuxt Shopping</nuxt-link></h1>
-    </header>
+    <Header />
     <Nuxt />
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header'
 export default {
+  components: { Header },
   created() {
   }
 }
 </script>
 
-<style>
-
+<style lang="scss">
+.ally {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
 </style>
