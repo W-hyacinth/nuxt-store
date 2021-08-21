@@ -6,7 +6,7 @@
     <article class="productInfo__detail">
       <h2 class="productInfo__name">{{ product.name }}</h2>
       <strong class="productInfo__price">{{ product.price }}</strong>
-      <button type="button" class="productInfo__btnCart">장바구니 담기</button>
+      <button type="button" class="productInfo__btnCart" @click="addToCart">장바구니 담기</button>
     </article>
   </main>
 </template>
@@ -19,7 +19,12 @@ export default {
     const product = response.data
     return { product }
   },
-  created() {
+  methods: {
+    addToCart() {
+      this.$store.commit('addCartItem', this.product)
+      const response = confirm('상품을 장바구니에 담았습니다.\n장바구니 페이지로 이동하시겠습니까?')
+      if (response) { this.$router.push('/cart') }
+    },
   }
 }
 </script>

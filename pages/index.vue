@@ -62,7 +62,6 @@ export default {
     flex-wrap: wrap;
     padding: 0;
     margin: 0 -0.5%;
-    list-style: none;
   }
   &__item {
     flex: 0 0 49%;

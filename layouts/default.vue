@@ -25,4 +25,8 @@ export default {
   position: absolute;
   width: 1px;
 }
+ul {
+  list-style: none;
+  padding: 0;
+}
 </style>
